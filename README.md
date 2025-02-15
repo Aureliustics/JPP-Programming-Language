@@ -11,7 +11,8 @@
 </ul>
 
 <h1>Code Examples</h1>
-```cpp
+
+```
 jout << "Hello World"; # Inspriation from cout from C++. Basically just prints a string to console. #
 jin << x; # Same thing as cin from C++. Takes input for variable. #
 
