@@ -106,7 +106,6 @@ def jin(value): # value is just the variable
     setVariable = input("[J++]: Listening for variable " + str(value) + ": ")
     print(str(value) + " set to " + str(setVariable))
     temp = available_vars(setVariable)
-    #print(temp)
     return str(setVariable)
     
 def move(value, direction): # value will be the distance in pixels tracy moves
@@ -267,88 +266,81 @@ def multiplication_Operation(value):
     print("[J++ Compiler]: " + str(result)) #prints by default for now but store it in a variable when variables are supported
         
 def syntax_tree(each): # this would be easier if only codehs supported match case statements
-    #try:
-    fetchedToken = each
-    if "loop(" in fetchedToken: # allow multi line by taking the code input and parsing it in a loop function into multiple commands to be looped
-        value = re.search(r'loop\((.*?)\)', each) # value\( matches loop(, (.*?) matches anything inside the brackets, \) matches closing bracket
-        value = value.group(1)
-        #code = re.search(r'loop\([^\)]*\)\{(.*?)\}', each)
-        #code = code.group(1)
-        each = each.split("{")[1]
-        code = each.split("}")[0]
-        loop(value, code)
-    elif "move(" in fetchedToken:
-        each = each[:-1]
-        first_part = "move("
-        each = each[each.index(first_part) + len(first_part):]
-        if "," in each:
-            argSpliter = each.split(",") # split multi arguements
-            arg1 = argSpliter[0] # get first arguement which will be the value
-            arg2 = argSpliter[1] # get second arguement which will be the direction
-            arg2 = arg2.replace(" ", "") # remove whitespace
-            move(arg1, arg2) # arg1 = value/length arg2 = alignment
-        elif "," not in each:
-            move(each, "forward") # default to forward if no 2nd arguement is defined
-    elif "degrees(" in fetchedToken:
-        each = each[:-1]
-        first_part = "degrees("
-        each = each[each.index(first_part) + len(first_part):]
-        if "," in each:
-            argSpliter = each.split(",") # split multi arguements
-            arg1 = argSpliter[0] # get first arguement which will be the value
-            arg2 = argSpliter[1] # get second arguement which will be the direction
-            arg2 = arg2.replace(" ", "") # remove whitespace
-            degrees(arg1, arg2) # arg1 = value/length arg2 = alignment
-        elif "," not in each:
-            degrees(each, "left") # default to left if no 2nd arguement is defined
-    elif "+" in fetchedToken:
-        add_Operation(each)
-    elif "-" in fetchedToken:
-        subtract_Operation(each)
-    elif "/" in fetchedToken:
-        division_Operation(each)
-    elif "*" in fetchedToken:
-        multiplication_Operation(each)
-    elif "jout" in fetchedToken and "loop(" not in fetchedToken: # if it includes jout...
-        # get value first
-        value = re.findall(r'"(.*?)"', fetchedToken) # r'"(.*?)"' will look for text inside quotes we are using the re module. Might needa change this so it can accept vars. It assumes all prints will have quotes.
-        for i in value:
-            jout(value)
-    elif "jin" in fetchedToken:
-        getVar = "jin << "
-        value = each[each.index(getVar) + len(getVar):]
-        jin(value)
-    elif "square(" in fetchedToken:
-        each = each[:-1]
-        first_part = "square("
-        each = each[each.index(first_part) + len(first_part):]
-        if "," in each:
-            argSpliter = each.split(",") # split multi arguements
-            arg1 = argSpliter[0] # get first arguement which will be the value
-            arg2 = argSpliter[1] # get second arguement which will be the direction
-            arg2 = arg2.replace(" ", "") # remove whitespace
-            square(arg1, arg2) # arg1 = value/length arg2 = alignment
-        elif "," not in each:
-            square(each, "center") # default to center if no 2nd arguement is defined
-    elif "triangle(" in fetchedToken:
-        each = each[:-1]
-        first_part = "triangle("
-        each = each[each.index(first_part) + len(first_part):]
-        if "," in each:
-            argSpliter = each.split(",") # split multi arguements
-            arg1 = argSpliter[0] # get first arguement which will be the value
-            arg2 = argSpliter[1] # get second arguement which will be the direction
-            arg2 = arg2.replace(" ", "") # remove whitespace
-            triangle(arg1, arg2) # arg1 = value/length arg2 = alignment
-        elif "," not in each:
-            triangle(each, "center") # default to center if no 2nd arguement is defined
-        #else:
-            #print("[J++]: Syntax Error")
-            #raise Exception("Syntax Error")
-    '''
+    try:
+        fetchedToken = each
+        if "loop(" in fetchedToken: # allow multi line by taking the code input and parsing it in a loop function into multiple commands to be looped
+            value = re.search(r'loop\((.*?)\)', each) # value\( matches loop(, (.*?) matches anything inside the brackets, \) matches closing bracket
+            value = value.group(1)
+            each = each.split("{")[1]
+            code = each.split("}")[0]
+            loop(value, code)
+        elif "move(" in fetchedToken:
+            each = each[:-1]
+            first_part = "move("
+            each = each[each.index(first_part) + len(first_part):]
+            if "," in each:
+                argSpliter = each.split(",") # split multi arguements
+                arg1 = argSpliter[0] # get first arguement which will be the value
+                arg2 = argSpliter[1] # get second arguement which will be the direction
+                arg2 = arg2.replace(" ", "") # remove whitespace
+                move(arg1, arg2) # arg1 = value/length arg2 = alignment
+            elif "," not in each:
+                move(each, "forward") # default to forward if no 2nd arguement is defined
+        elif "degrees(" in fetchedToken:
+            each = each[:-1]
+            first_part = "degrees("
+            each = each[each.index(first_part) + len(first_part):]
+            if "," in each:
+                argSpliter = each.split(",") # split multi arguements
+                arg1 = argSpliter[0] # get first arguement which will be the value
+                arg2 = argSpliter[1] # get second arguement which will be the direction
+                arg2 = arg2.replace(" ", "") # remove whitespace
+                degrees(arg1, arg2) # arg1 = value/length arg2 = alignment
+            elif "," not in each:
+                degrees(each, "left") # default to left if no 2nd arguement is defined
+        elif "+" in fetchedToken:
+            add_Operation(each)
+        elif "-" in fetchedToken:
+            subtract_Operation(each)
+        elif "/" in fetchedToken:
+            division_Operation(each)
+        elif "*" in fetchedToken:
+            multiplication_Operation(each)
+        elif "jout" in fetchedToken and "loop(" not in fetchedToken: # if it includes jout...
+            # get value first
+            value = re.findall(r'"(.*?)"', fetchedToken) # r'"(.*?)"' will look for text inside quotes we are using the re module. Might needa change this so it can accept vars. It assumes all prints will have quotes.
+            for i in value:
+                jout(value)
+        elif "jin" in fetchedToken:
+            getVar = "jin << "
+            value = each[each.index(getVar) + len(getVar):]
+            jin(value)
+        elif "square(" in fetchedToken:
+            each = each[:-1]
+            first_part = "square("
+            each = each[each.index(first_part) + len(first_part):]
+            if "," in each:
+                argSpliter = each.split(",") # split multi arguements
+                arg1 = argSpliter[0] # get first arguement which will be the value
+                arg2 = argSpliter[1] # get second arguement which will be the direction
+                arg2 = arg2.replace(" ", "") # remove whitespace
+                square(arg1, arg2) # arg1 = value/length arg2 = alignment
+            elif "," not in each:
+                square(each, "center") # default to center if no 2nd arguement is defined
+        elif "triangle(" in fetchedToken:
+            each = each[:-1]
+            first_part = "triangle("
+            each = each[each.index(first_part) + len(first_part):]
+            if "," in each:
+                argSpliter = each.split(",") # split multi arguements
+                arg1 = argSpliter[0] # get first arguement which will be the value
+                arg2 = argSpliter[1] # get second arguement which will be the direction
+                arg2 = arg2.replace(" ", "") # remove whitespace
+                triangle(arg1, arg2) # arg1 = value/length arg2 = alignment
+            elif "," not in each:
+                triangle(each, "center") # default to center if no 2nd arguement is defined
     except Exception as err:
         print("[J++ Compiler]: Caught unexpected error: " + str(err) + "\n")
-    '''
 def evaluator(jpp_parsed): #cut at semicolon for individual commands
     splitCommands = jpp_parsed.split(";")
     lineNumber = 0
