@@ -10,7 +10,7 @@
   <li>Try some of the J++ code below</li>
 </ul>
 
-<h1>Code Examples</h1>
+<h1>J++ Code Examples</h1>
 
 ```
 jout << "Hello World"; # Inspriation from cout from C++. Basically just prints a string to console. #
