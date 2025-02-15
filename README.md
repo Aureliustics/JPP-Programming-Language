@@ -31,5 +31,4 @@ triangle(25, bottom); # create a triangle right under the turtle with length of 
 9 * 9; # You can evaluate mathematical expressions but with only 2 operands and without order of operations #
 15 / 5;
 2 + 2;
-```
 
