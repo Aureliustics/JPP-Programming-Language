@@ -6,7 +6,7 @@
   <li>Must be ran in a <a href="https://codehs.com/" target="_blank">CodeHS</a> sandbox</li>
   <li>Once logged into Codehs, click "Sandbox" in the navigation bar</li>
   <li>Click "Create Program" then select "Python (turtle)" and create program</li>
-  <li>Copy and paste the code into your sandbox then run</li>
+  <li>Copy and paste the <a href="https://github.com/Aureliustics/JPP-Programming-Language/blob/main/J%2B%2B.py" target="_blank">code</a> into your sandbox then run</li>
   <li>Try some of the J++ code below</li>
 </ul>
 
