@@ -22,7 +22,9 @@ loop(number here){
 Example: # Cool comment! #. You can comment code by putting it inbetween hashtags: # jout< "Help im commented out!" #
 
 Essentially a visual of how it will work: https://accu.org/journals/overload/26/145/balaam_2510/1.png
-''' You can ignore above this was just for me to visualize the project before I started working on it.
+
+[!] You can ignore above this was just for me to visualize the project before I started working on it.
+'''
 import re
 speed(0)
 
