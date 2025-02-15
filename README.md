@@ -11,7 +11,8 @@
 </ul>
 
 <h1>Code Examples</h1>
-```jout << "Hello World"; # Inspriation from cout from C++. Basically just prints a string to console. #
+```cpp
+jout << "Hello World"; # Inspriation from cout from C++. Basically just prints a string to console. #
 jin << x; # Same thing as cin from C++. Takes input for variable. #
 
 loop(4){
@@ -29,4 +30,5 @@ triangle(25, bottom); # create a triangle right under the turtle with length of 
 
 9 * 9; # You can evaluate mathematical expressions but with only 2 operands and without order of operations #
 15 / 5;
-2 + 2;```
+2 + 2;
+```
