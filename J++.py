@@ -97,7 +97,7 @@ def jout(value):
     #print_value = value[2:-2] # removes the [''] that re module adds
     if isinstance(value, str) is False: # check if its printing a string
         print_value = value[0] if isinstance(value, list) else value # since re.findall(r'"(.*?)"', fetchedToken) returns a list. this makes it so if the first node of the value is a list, only the first element is printed aka our expected print value
-        print("[J++ Compiler]: " + str(print_value))
+        print("[J++ Interpreter]: " + str(print_value))
     elif isinstance(value, str) is True: # if its printing a variable
         print("var here") # this doesnt work yet, not variable support added unfortunately.
     
@@ -186,7 +186,7 @@ def square(value, alignment): # value = length
             forward(int(value))
             left(90)
     else:
-        print("[J++ Compiler]: You must specify alignment. (center, top, bottom)")
+        print("[J++ Interpreter]: You must specify alignment. (center, top, bottom)")
 
 def triangle(value, alignment):
     seth(0)
@@ -236,7 +236,7 @@ def add_Operation(value):
     operand_1 = value.split("+")[0]
     operand_2 = value.split("+")[1]
     result = int(operand_1) + int(operand_2)
-    print("[J++ Compiler]: " + str(result)) #prints by default for now but store it in a variable when variables are supported
+    print("[J++ Interpreter]: " + str(result)) #prints by default for now but store it in a variable when variables are supported
     
 def subtract_Operation(value):
     value = str(value)
@@ -245,7 +245,7 @@ def subtract_Operation(value):
     operand_1 = value.split("-")[0]
     operand_2 = value.split("-")[1]
     result = int(operand_1) - int(operand_2)
-    print("[J++ Compiler]: " + str(result)) #prints by default for now but store it in a variable when variables are supported
+    print("[J++ Interpreter]: " + str(result)) #prints by default for now but store it in a variable when variables are supported
     
 def division_Operation(value):
     value = str(value)
@@ -254,7 +254,7 @@ def division_Operation(value):
     operand_1 = value.split("/")[0]
     operand_2 = value.split("/")[1]
     result = float(operand_1) / float(operand_2)
-    print("[J++ Compiler]: " + str(result)) #prints by default for now but store it in a variable when variables are supported
+    print("[J++ Interpreter]: " + str(result)) #prints by default for now but store it in a variable when variables are supported
     
 def multiplication_Operation(value):
     value = str(value)
@@ -263,7 +263,7 @@ def multiplication_Operation(value):
     operand_1 = value.split("*")[0]
     operand_2 = value.split("*")[1]
     result = float(operand_1) * float(operand_2)
-    print("[J++ Compiler]: " + str(result)) #prints by default for now but store it in a variable when variables are supported
+    print("[J++ Interpreter]: " + str(result)) #prints by default for now but store it in a variable when variables are supported
         
 def syntax_tree(each): # this would be easier if only codehs supported match case statements
     try:
@@ -340,7 +340,7 @@ def syntax_tree(each): # this would be easier if only codehs supported match cas
             elif "," not in each:
                 triangle(each, "center") # default to center if no 2nd arguement is defined
     except Exception as err:
-        print("[J++ Compiler]: Caught unexpected error: " + str(err) + "\n")
+        print("[J++ Interpreter]: Caught unexpected error: " + str(err) + "\n")
 def evaluator(jpp_parsed): #cut at semicolon for individual commands
     splitCommands = jpp_parsed.split(";")
     lineNumber = 0
