@@ -1,5 +1,5 @@
 <h1>J++ Programming Language</h1>
-<h3>My attempt on creating an interpreted programming language called J++ made using Python (also an interpreted language) which gets interpreted by Skulpt on CodeHS. Triple layer interpretation 🤯. Definitely very messy code but I just wanted to see if I could make it in such a restraining environment like CodeHS. Very basic functionality and is more of a proof of concept than anything viable.</h3>
+<h3>My attempt on creating an interpreted programming language called J++ made using Python (also an interpreted language) which gets interpreted by Skulpt on CodeHS. Triple layer interpretation lol. Definitely very messy code but I just wanted to see if I could make it in such a restraining environment like CodeHS. Very basic functionality and is more of a proof of concept than anything viable.</h3>
 
 <h1>Usage</h1>
 <ul>
